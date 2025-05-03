@@ -1,12 +1,6 @@
-export class ListNode {
-	val: number;
-	next: ListNode | null;
+import { SinglyLinkedListNode } from "@lib/linked_lists";
 
-	constructor(val = 0, next: ListNode | null = null) {
-		this.val = val;
-		this.next = next;
-	}
-}
+export class ListNode extends SinglyLinkedListNode<number> {}
 
 export class TreeNode {
 	val: number;

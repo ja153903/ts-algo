@@ -1,11 +1,11 @@
 import type { Optional } from "@lib/types";
 
 export class SinglyLinkedListNode<T> {
-	value: T;
+	val: T;
 	next: Optional<SinglyLinkedListNode<T>>;
 
 	constructor(value: T, next: Optional<SinglyLinkedListNode<T>> = null) {
-		this.value = value;
+		this.val = value;
 		this.next = next;
 	}
 }
@@ -97,7 +97,7 @@ export class SinglyLinkedList<T> {
 		let current: Optional<SinglyLinkedListNode<T>> = this.head;
 
 		while (current !== null) {
-			if (current.value === value) {
+			if (current.val === value) {
 				return current;
 			}
 
@@ -144,7 +144,7 @@ export class SinglyLinkedList<T> {
 		}
 
 		while (current !== null) {
-			result.push(current.value);
+			result.push(current.val);
 			current = current.next;
 		}
 

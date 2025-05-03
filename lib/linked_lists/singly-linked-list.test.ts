@@ -13,7 +13,7 @@ describe("SinglyLinkedList", () => {
 		test("should add node to front of empty list", () => {
 			const list = new SinglyLinkedList();
 			list.addToFront(1);
-			expect(list.head?.value).toBe(1);
+			expect(list.head?.val).toBe(1);
 			expect(list.size).toBe(1);
 		});
 
@@ -21,8 +21,8 @@ describe("SinglyLinkedList", () => {
 			const list = new SinglyLinkedList();
 			list.addToFront(1);
 			list.addToFront(2);
-			expect(list.head?.value).toBe(2);
-			expect(list.head?.next?.value).toBe(1);
+			expect(list.head?.val).toBe(2);
+			expect(list.head?.next?.val).toBe(1);
 			expect(list.size).toBe(2);
 		});
 	});
@@ -31,7 +31,7 @@ describe("SinglyLinkedList", () => {
 		test("should add node to back of empty list", () => {
 			const list = new SinglyLinkedList();
 			list.addToBack(1);
-			expect(list.head?.value).toBe(1);
+			expect(list.head?.val).toBe(1);
 			expect(list.size).toBe(1);
 		});
 
@@ -39,8 +39,8 @@ describe("SinglyLinkedList", () => {
 			const list = new SinglyLinkedList();
 			list.addToBack(1);
 			list.addToBack(2);
-			expect(list.head?.value).toBe(1);
-			expect(list.head?.next?.value).toBe(2);
+			expect(list.head?.val).toBe(1);
+			expect(list.head?.next?.val).toBe(2);
 			expect(list.size).toBe(2);
 		});
 	});
@@ -56,8 +56,8 @@ describe("SinglyLinkedList", () => {
 			list.addToFront(1);
 			list.addToFront(2);
 			const removed = list.removeFromFront();
-			expect(removed?.value).toBe(2);
-			expect(list.head?.value).toBe(1);
+			expect(removed?.val).toBe(2);
+			expect(list.head?.val).toBe(1);
 			expect(list.size).toBe(1);
 		});
 	});
@@ -73,8 +73,8 @@ describe("SinglyLinkedList", () => {
 			list.addToBack(1);
 			list.addToBack(2);
 			const removed = list.removeFromBack();
-			expect(removed?.value).toBe(2);
-			expect(list.head?.value).toBe(1);
+			expect(removed?.val).toBe(2);
+			expect(list.head?.val).toBe(1);
 			expect(list.size).toBe(1);
 		});
 	});
@@ -136,7 +136,7 @@ describe("SinglyLinkedList", () => {
 
 			const values = [];
 			for (const node of list) {
-				if (node) values.push(node.value);
+				if (node) values.push(node.val);
 			}
 			expect(values).toEqual([1, 2, 3]);
 		});
