@@ -1,3 +1,3 @@
-export { MaxStack } from "./max-stack";
-export { MinStack } from "./min-stack";
-export { Stack } from "./stack";
+export * from "./max-stack";
+export * from "./min-stack";
+export * from "./stack";

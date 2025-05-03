@@ -1,3 +1,3 @@
-export { Deque } from "./deque";
-export { PriorityQueue } from "./priority-queue";
-export { Queue } from "./queue";
+export * from "./deque";
+export * from "./priority-queue";
+export * from "./queue";

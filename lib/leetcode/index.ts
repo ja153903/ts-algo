@@ -1,1 +1,1 @@
-export { ListNode, TreeNode } from "./data-structures.ts";
+export * from "./data-structures";
