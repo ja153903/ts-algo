@@ -68,7 +68,7 @@ export class SinglyLinkedList<T> {
 			prev.next = null;
 		}
 
-		return current.next;
+		return current;
 	}
 
 	get first(): Optional<SinglyLinkedListNode<T>> {
@@ -86,7 +86,7 @@ export class SinglyLinkedList<T> {
 			current = current.next;
 		}
 
-		return current.next;
+		return current;
 	}
 
 	find(value: T): Optional<SinglyLinkedListNode<T>> {
