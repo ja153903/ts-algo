@@ -29,4 +29,10 @@ export class Counter<T> extends Map<T, number> {
 			this.increment(key, count);
 		}
 	}
+
+	getMostCommon(k = 1) {
+		return Array.from(this.entries())
+			.toSorted((a, b) => b[1] - a[1])
+			.slice(0, k);
+	}
 }
