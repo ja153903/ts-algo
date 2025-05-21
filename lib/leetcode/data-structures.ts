@@ -1,4 +1,4 @@
-import { SinglyLinkedListNode } from "@lib/linked_lists";
+import { SinglyLinkedListNode } from "@lib/linked-lists";
 
 export class ListNode extends SinglyLinkedListNode<number> {}
 
