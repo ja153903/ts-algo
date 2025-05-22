@@ -9,6 +9,6 @@ describe("Queue", () => {
 		queue.enqueue(3);
 
 		expect(queue.size).toBe(3);
-		expect(queue.poll()).toBe(1);
+		expect(queue.dequeue()).toBe(1);
 	});
 });

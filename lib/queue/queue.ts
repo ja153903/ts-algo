@@ -9,7 +9,7 @@ export class Queue<T> {
 		this.container.unshift(item);
 	}
 
-	poll(): T | undefined {
+	dequeue(): T | undefined {
 		return this.container.pop();
 	}
 
