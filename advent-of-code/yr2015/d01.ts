@@ -5,8 +5,9 @@ const PATH_TO_FILE = `${import.meta.dir}/../data/yr2015/d01.in`;
 
 type ParenthesisOutput = 1 | -1;
 
-const mapParenthesisToNum = (parenthesis: string): ParenthesisOutput =>
-	parenthesis === "(" ? 1 : -1;
+function mapParenthesisToNum(parenthesis: string): ParenthesisOutput {
+	return parenthesis === "(" ? 1 : -1;
+}
 
 const stream = readFileToStream(PATH_TO_FILE);
 
