@@ -1,21 +1,17 @@
 import { Effect, Stream, Sink } from "effect";
-import { readFileToString } from "@lib/advent-of-code";
+import { readFileToStream } from "@lib/advent-of-code";
 
 const PATH_TO_FILE = `${import.meta.dir}/../data/yr2015/d01.in`;
 
 type ParenthesisOutput = 1 | -1;
 
-const mapParenthesisToNum = (parenthesis: string) =>
+const mapParenthesisToNum = (parenthesis: string): ParenthesisOutput =>
 	parenthesis === "(" ? 1 : -1;
 
-const stream = Stream.fromIterableEffect(
-	readFileToString(PATH_TO_FILE).pipe(Effect.map((data) => data.split(""))),
-);
+const stream = readFileToStream(PATH_TO_FILE);
 
 const sum = Sink.sum.pipe(
-	Sink.mapInput<string, ParenthesisOutput>((parenthesis) =>
-		mapParenthesisToNum(parenthesis),
-	),
+	Sink.mapInput<string, ParenthesisOutput>(mapParenthesisToNum),
 );
 
 interface TerminateOnBasementAccumulator {
@@ -39,7 +35,9 @@ Effect.runPromise(
 		Stream.run(stream, terminateOnBasement),
 		(totalFloors, terminalPosition) => ({ totalFloors, terminalPosition }),
 	),
-).then(({ totalFloors, terminalPosition }) => {
-	console.log(`Part 1: ${totalFloors}`);
-	console.log(`Part 2: ${terminalPosition.position}`);
-});
+)
+	.then(({ totalFloors, terminalPosition }) => {
+		console.log(`Part 1: ${totalFloors}`);
+		console.log(`Part 2: ${terminalPosition.position}`);
+	})
+	.catch(console.error);
