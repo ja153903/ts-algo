@@ -14,14 +14,14 @@ function longestPalindrome(words: string[]): number {
 		const reversedWord = `${word[1]}${word[0]}`;
 
 		if (counter.has(reversedWord)) {
-			counter.set(reversedWord, (counter.get(reversedWord) ?? 0) - 1);
+			counter.decrement(reversedWord);
 			result += 4;
 
 			if ((counter.get(reversedWord) ?? 0) <= 0) {
 				counter.delete(reversedWord);
 			}
 		} else {
-			counter.set(word, (counter.get(word) ?? 0) + 1);
+			counter.increment(word);
 		}
 	}
 
