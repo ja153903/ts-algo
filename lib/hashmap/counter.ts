@@ -14,11 +14,11 @@ export class Counter<T> extends Map<T, number> {
 	}
 
 	increment(item: T, by = 1) {
-		this.set(item, (this.get(item) ?? 0) + by);
+		this.set(item, this.get(item) + by);
 	}
 
 	decrement(item: T, by = 1) {
-		this.set(item, (this.get(item) ?? 0) - by);
+		this.set(item, this.get(item) - by);
 	}
 
 	clean() {
