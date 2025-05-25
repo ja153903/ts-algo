@@ -19,8 +19,13 @@ export class Counter<T> extends Map<T, number> {
 
 	decrement(item: T, by = 1) {
 		this.set(item, (this.get(item) ?? 0) - by);
-		if ((this.get(item) ?? 0) <= 0) {
-			this.delete(item);
+	}
+
+	clean() {
+		for (const [key, count] of this.entries()) {
+			if (count <= 0) {
+				this.delete(key);
+			}
 		}
 	}
 
@@ -36,6 +41,11 @@ export class Counter<T> extends Map<T, number> {
 			.slice(0, k);
 	}
 
+	/**
+	 * We override the `get` method to return `0` if the key is not found
+	 * @param key
+	 * @returns
+	 */
 	override get(key: T) {
 		const value = super.get(key);
 		return value ?? 0;
