@@ -17,7 +17,7 @@ function longestPalindrome(words: string[]): number {
 			counter.decrement(reversedWord);
 			result += 4;
 
-			if ((counter.get(reversedWord) ?? 0) <= 0) {
+			if (counter.get(reversedWord) <= 0) {
 				counter.delete(reversedWord);
 			}
 		} else {

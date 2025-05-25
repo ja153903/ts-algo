@@ -35,4 +35,9 @@ export class Counter<T> extends Map<T, number> {
 			.toSorted((a, b) => b[1] - a[1])
 			.slice(0, k);
 	}
+
+	override get(key: T) {
+		const value = super.get(key);
+		return value ?? 0;
+	}
 }
