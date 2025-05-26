@@ -1,5 +1,5 @@
 export class Counter<T> extends Map<T, number> {
-	constructor(items?: T[]) {
+	constructor(items?: Iterable<T>) {
 		super();
 
 		if (items) {
@@ -7,7 +7,7 @@ export class Counter<T> extends Map<T, number> {
 		}
 	}
 
-	private from(items: T[]) {
+	private from(items: Iterable<T>) {
 		for (const item of items) {
 			this.increment(item);
 		}
